@@ -9,7 +9,6 @@ try {
 	var Backbone = window.Backbone;
 }
 var merge = require('lodash.merge');
-var cloneDeep = require('lodash.clonedeep');
 
 /**
  * Takes a nested object and returns a shallow object keyed with the path names
@@ -103,13 +102,6 @@ function setNested(obj, path, val, options) {
 		} else {
 			//Create the child object if it doesn't exist, or isn't an object
 			if (typeof result[field] === 'undefined' || !_.isObject(result[field])) {
-				// If trying to remove a field that doesn't exist, then there's no need
-				// to create its missing parent (doing so causes a problem with
-				// hasChanged()).
-				if (options.unset) {
-					delete result[field]; // in case parent exists but is not an object
-					return;
-				}
 				var nextField = fields[i + 1];
 
 				// create array if next field is integer, else create object
@@ -138,7 +130,7 @@ var DeepModel = Backbone.Model.extend({
 		this.attributes = {};
 		if (options && options.collection) this.collection = options.collection;
 		if (options && options.parse) attrs = this.parse(attrs, options) || {};
-    attrs = merge({}, cloneDeep(_.result(this, 'defaults')), attrs);
+    attrs = merge({}, _.result(this, 'defaults'), attrs);
 		this.set(attrs, options);
 		this.changed = {};
 		this.initialize.apply(this, arguments);
