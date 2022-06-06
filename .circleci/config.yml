@@ -1,4 +1,4 @@
-version: 1.0
+version: 2.0.6
 
 orbs:
   node: circleci/node@4.5.0
@@ -11,8 +11,8 @@ jobs:
       - attach_workspace:
           at: .
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
+      - node/install:
+          node-version: '10.24.1'
       - run: npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
       - run: npm install
       - run: npm version from-git --no-git-tag-version 
