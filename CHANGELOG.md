@@ -1,6 +1,3 @@
-## v2.0.2 -- 2015-03-23
-* Bug fix where defaults is overwritten by attrs.
-
 ## v2.0.1 -- 2015-03-23
 * Bug fix where defaults is overwritten by attrs.
 

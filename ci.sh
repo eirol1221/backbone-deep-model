@@ -1,6 +1,7 @@
 #!/bin/bash
 
 npm install
+npm dedupe
 
 if [[ -n "$UNDERSCORE" ]]
 then
@@ -15,16 +16,12 @@ fi
 if [[ -n "$LODASH" ]]
 then
 	npm install lodash@"$LODASH"
-	rm -Rf node_modules/underscore
-	cp -Rf node_modules/lodash node_modules/undescore
 
 	# Lodash@2 and Lodash@3 have different file structures
 	if [[ "$LODASH" < "3.0" ]]
 	then
-		rm -Rf node_modules/underscore
-		cp -Rf node_modules/lodash node_modules/undescore
-	else
-		ls node_modules
-		#mv node_modules/lodash/index.js node_modules/underscore/underscore.js
+		mv node_modules/lodash/lodash.js node_modules/underscore/underscore.js
+	else 
+		mv node_modules/lodash/index.js node_modules/underscore/underscore.js
 	fi
 fi
