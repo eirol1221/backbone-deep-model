@@ -1,3 +1,5 @@
+[![Open in DevZero](https://assets.devzero.io/open-in-devzero.svg)](https://www.devzero.io/dashboard/recipes/new?repo-url=https://github.com/WarbyParker/backbone-deep-model)
+
 ## backbone-deep-model
 
 [![Build Status](https://travis-ci.org/kahwee/backbone-deep-model.svg?branch=master)](https://travis-ci.org/kahwee/backbone-deep-model) [![Coverage Status](https://coveralls.io/repos/kahwee/backbone-deep-model/badge.svg?branch=master)](https://coveralls.io/r/kahwee/backbone-deep-model?branch=master) [![Code Climate](https://codeclimate.com/github/kahwee/backbone-deep-model/badges/gpa.svg)](https://codeclimate.com/github/kahwee/backbone-deep-model)
